@@ -16,7 +16,7 @@ body {
   }
 }
 
-/* 종단점 - 769px 이상 */
+/* 중단점 - 769px 이상 */
 @media (min-width: 769px) {
   body {
     background-color: var(--blue);
