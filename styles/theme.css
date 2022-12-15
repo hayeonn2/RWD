@@ -1,3 +1,5 @@
+/* CSS 변수 */
+
 :root {
   --white: #fff;
   --black: #000;
@@ -13,6 +15,7 @@
   --brown: #988574;
   --blue: #6aaee6;
 
+  /* var : variation >> h1 {background: var (--primary-color)} */
   --primary-color: var(--dark-brown);
   --secondary-color: var(--light-brown);
   --accent-color: var(--light-yellow);
