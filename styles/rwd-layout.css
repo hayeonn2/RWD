@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.group1 {
+  background: gold;
+}
+.group2 {
+  background: lime;
+}
+.group3 {
+  background: skyblue;
+}
+.group4 {
+  background: pink;
+}
+.group5 {
+  background: aqua;
+}
+.group6 {
+  background: plum;
+}
+.group7 {
+  background: khaki;
+}
+.group8 {
+  background: orange;
+}
+.group9 {
+  background: mediumpurple;
+}
+.group10 {
+  background: seagreen;
+}
+.group11 {
+  background: salmon;
+}
+.group12 {
+  background: violet;
+}
+
+/* 모든 디바이스 */
+.container {
+  background-color: silver;
+  border: 1px solid red;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 12px 0px;
+}
+
+/* 클래스값이 그룹으로 ^ = "시작"하는 것 */
+div[class*="group"] {
+  width: 100%;
+  height: 50px;
+  margin: 12px 0;
+  padding: 0 24px;
+}
+
+/* 768px 이상일 때 */
+@media (min-width: 768px) {
+  div[class*="group"] {
+    width: 50%;
+    height: 100px;
+  }
+}
+
+/* 1280px 이상일 때 */
+@media (min-width: 1280px) {
+  div[class*="group"] {
+    width: 25%;
+    height: 200px;
+  }
+}
