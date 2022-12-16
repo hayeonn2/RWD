@@ -89,6 +89,13 @@ input[type="search"] {
   border: 1px solid currentColor;
 }
 
+/* 공통 메인 메뉴 */
+.menu__link {
+  display: block;
+  font-size: var(--text-md);
+  font-weight: 700;
+}
+
 /* 모바일 디바이스 (Mobile Device) */
 @media (min-width: 320px) and (max-width: 768px) {
   /* 모바일 헤더 */
@@ -175,8 +182,32 @@ input[type="search"] {
 
   /* 모바일 메인 메뉴 */
   .menu__list {
+    background: var(--accent-opacity-color);
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 70%;
+    height: 100vh;
+    backdrop-filter: blur(4px);
+    padding: var(--spacing-lg);
+    transform: translateX(-150%);
+  }
+
+  .menu__item {
+    border-bottom: 1px solid var(--silver);
+  }
+
+  .menu__link {
+    padding: var(--spacing-xs);
+  }
+
+  .menu.is--active .menu__list {
+    transform: none;
+  }
+  /* .menu__list {
     background-color: var(--accent-opacity-color);
-    /* absolute랑 성격이 똑같음. 대신 뷰포트 기준으로 배치 */
+    absolute랑 성격이 똑같음. 대신 뷰포트 기준으로 배치
     position: fixed;
     top: 0;
     left: 0;
@@ -184,14 +215,14 @@ input[type="search"] {
     height: 100vh;
     z-index: 100;
     backdrop-filter: blur(2px);
-    /* 큰 값을 줘서 가려준다. */
+    큰 값을 줘서 가려준다.
     transform: translateX(-150%);
     transition: all 200ms;
   }
 
   .menu.is--active .menu__list {
     transform: none;
-  }
+  } */
 }
 
 /* 데스크탑 디바이스 (Desktop Device) */
