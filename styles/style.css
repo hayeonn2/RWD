@@ -111,6 +111,7 @@ input[type="search"] {
 
   /* 모바일 메인메뉴 제어버튼 */
   .buttonWrapper {
+    /* overflow hidden의해 살짝 짤리는 부분때문에 패딩값 추가 */
     padding: var(--spacing-xxs);
     overflow: hidden;
     position: absolute;
@@ -132,6 +133,8 @@ input[type="search"] {
   .button--burgerBarTop,
   .button--burgerBarMiddle,
   .button--burgerBarBottom {
+    /* 클릭시 잘 안될때가 있는데 그것 보완 (안전하게) */
+    pointer-events: none;
     position: absolute;
     width: 100%;
     height: 20%;
@@ -161,12 +164,33 @@ input[type="search"] {
   }
 
   .button--burger.is--active .button--burgerBarMiddle {
+    /* 더 많이 나가게 해주려고 -150% 줌 */
     transform: translate(-150%, -50%);
   }
 
   .button--burger.is--active .button--burgerBarBottom {
     top: 50%;
     transform: translateY(-50%) rotate(-45deg);
+  }
+
+  /* 모바일 메인 메뉴 */
+  .menu__list {
+    background-color: var(--accent-opacity-color);
+    /* absolute랑 성격이 똑같음. 대신 뷰포트 기준으로 배치 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70%;
+    height: 100vh;
+    z-index: 100;
+    backdrop-filter: blur(2px);
+    /* 큰 값을 줘서 가려준다. */
+    transform: translateX(-150%);
+    transition: all 200ms;
+  }
+
+  .menu.is--active .menu__list {
+    transform: none;
   }
 }
 
@@ -177,7 +201,7 @@ input[type="search"] {
     max-width: var(--container-width);
     margin-left: auto;
     margin-right: auto;
-    background-color: gold;
+    /* background-color: gold; */
   }
 
   /* 데스크탑 로고 */
@@ -199,6 +223,35 @@ input[type="search"] {
   /* 데스크탑 메인메뉴 제어버튼 */
   .button--burger {
     display: none;
+  }
+
+  /* 데스크탑 메인메뉴 */
+  .menu {
+    background: var(--secondary-color);
+  }
+
+  .menu__list {
+    /* 반응형 크기로 max-width주어 일관적이게 유지하는것이 좋다. */
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--white);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    /* 가로세로 중간배치 */
+    align-items: center;
+  }
+  .menu__item {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 0 var(--black), -1px -1px 0 var(--black);
+  }
+  .menu__link {
+    /* 블록처리해야 부모안에서 패딩값이 들어간다. */
+    display: block;
+    padding: var(--spacing-base) var(--spacing-lg);
   }
 }
 
